@@ -3,7 +3,7 @@ package com.mercurytours.testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,8 +20,10 @@ public class LoginTest {
 
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\G50-70\\Desktop\\BusyQA\\Selenium Jars\\geckodriver.exe");
-		driver=new FirefoxDriver();
+		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\G50-70\\Desktop\\BusyQA\\Selenium Jars\\geckodriver.exe");
+		//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();
 		lp=new LoginPage(driver);
 		driver.get("http://newtours.demoaut.com/");	
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

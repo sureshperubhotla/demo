@@ -3,7 +3,7 @@ package com.mercurytours.testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,8 +14,9 @@ public class VerifyHomePageTitle {
 	
 	@BeforeTest
 	public void setUp() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\G50-70\\Desktop\\BusyQA\\Selenium Jars\\geckodriver.exe");
-		driver=new FirefoxDriver();
+		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\G50-70\\Desktop\\BusyQA\\Selenium Jars\\geckodriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();
 		driver.get("http://newtours.demoaut.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

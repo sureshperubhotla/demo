@@ -5,7 +5,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -24,8 +25,9 @@ public class VerifyTicketPurchase {
 	
 	@BeforeTest
 	public void setUp() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\G50-70\\Desktop\\BusyQA\\Selenium Jars\\geckodriver.exe");
-		driver=new FirefoxDriver();
+		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\G50-70\\Desktop\\BusyQA\\Selenium Jars\\geckodriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();
 		lp=new LoginPage(driver);
 		ff=new FlightFinder(driver);
 		sf=new SelectFlight(driver);
@@ -83,12 +85,14 @@ public class VerifyTicketPurchase {
 			String expectedText = "Your itinerary has been booked!";
 			WebElement el=driver.findElement(By.xpath("//font[contains(text(),'Your ')]"));
 			String actualText = el.getText();
-						
-			if(expectedText.equals(actualText)) {
+
+			Assert.assertEquals(actualText,expectedText);
+			
+			/*if(expectedText.equals(actualText)) {
 				System.out.println("Test passed : Your itinerary has been booked");
 			}else {
 				System.out.println("Ticket Purchase Unsuccessful:"+actualText);
-			}
+			}*/
 	}
 	
 	@AfterTest
