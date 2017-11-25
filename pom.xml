@@ -32,7 +32,7 @@
     		<version>6.11</version>
     		<scope>test</scope>
 		</dependency>
-				<dependency>
+		<dependency>
     		<groupId>org.apache.poi</groupId>
     		<artifactId>poi</artifactId>
     		<version>3.17</version>
@@ -54,6 +54,12 @@
     		<groupId>org.apache.poi</groupId>
     		<artifactId>poi-ooxml-schemas</artifactId>
     		<version>3.17</version>
+		</dependency>
+		<!-- pom.xml Version 2.x -->
+		<dependency>
+    		<groupId>com.relevantcodes</groupId>
+    		<artifactId>extentreports</artifactId>
+    		<version>2.41.2</version>
 		</dependency>
 	</dependencies>
 </project>
